@@ -86,7 +86,7 @@
 
 
         var excecuted = false;
-        var testing = 0;
+        var excecutedNumber = 0;
 
         // Main Leap Loop
         Leap.loop(options, function(frame) {
@@ -95,19 +95,13 @@
 
             if (numberHands == 1) {
                 if (excecuted == false) {
-                    //console.log("Do something")
                     randomWord();
                     excecuted = true;
-                    testing = 1;
-                } else {
-                    //console.log("Do nothing");
+                    excecutedNumber = 1;
                 }
             } else {
                 if (excecuted == true) {
-                    //console.log("Do nothing")
                     excecuted = false;
-                } else {
-                    //console.log("Do nothing");
                 }
             }
 

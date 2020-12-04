@@ -1,7 +1,10 @@
 var gl, noctaves, c;
 
+//variables for randomwords code
+var excecuted = false;
+var excecutedNumber = 0;
+
 function setup() {
-    // createCanvas(windowWidth, windowHeight, WEBGL);
     createCanvas(windowWidth, windowHeight, WEBGL);
     gl = this.canvas.getContext('webgl');
     gl.disable(gl.DEPTH_TEST);
@@ -26,8 +29,8 @@ function draw() {
     var mouseY = sessionStorage.getItem("y");
     // console.log("y" = mouseY);
 
-    var handX = mouseY * 10;
-    var handY = mouseX * 10;
+    var handX = mouseX * 10;
+    var handY = mouseY * 10;
 
     test.setUniform("iResolution", [width, height]); //pass some values to the shader
     test.setUniform("iTime", millis() * .001);
