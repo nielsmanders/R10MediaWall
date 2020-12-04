@@ -4,11 +4,7 @@ LeapManager.init({
         frame.hands.forEach(function(h, i) {
             // only listen to the first hand
             if (i > 0) return;
-
-
-
             document.getElementById("h0_palmPosition").innerHTML = ("Hand[0] palmPosition " + h.palmPosition.join(" "));
-
 
             str = (h.palmPosition.join(" "));
             var array = str.split(' '),

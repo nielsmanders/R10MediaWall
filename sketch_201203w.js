@@ -26,8 +26,8 @@ function draw() {
     var mouseY = sessionStorage.getItem("y");
     // console.log("y" = mouseY);
 
-    var handX = mouseX;
-    var handY = mouseY;
+    var handX = mouseY * 10;
+    var handY = mouseX * 10;
 
     test.setUniform("iResolution", [width, height]); //pass some values to the shader
     test.setUniform("iTime", millis() * .001);
