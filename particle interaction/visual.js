@@ -19,7 +19,7 @@ var maxX = window.innerWidth;
 var maxY = window.innerHeight;
 
 //particles
-var particles = 2000;
+var particles = 200;
 var deviation = 20;
 var speed = 0.001;
 
@@ -28,12 +28,15 @@ var avgMotion;
 
 const colorSchemes = [
     ["#581845", "#900C3F", "#C70039", "#FF5733", "#FFC30F"],
-    ["#fff222", "#222fff", "#fcfcfc", "#ffffff", "#fgfgfg"],
-    ["#fac901", "#225095", "#dd0100", "#ffffff", "#000000"]
+    ["#a7414a", "#282726", "#6a8a82", "#a37c27", "#563838"],
+    ["#c2d3da", "#81a3a7", "#585a56", "#f1f3f2", "#272424"],
+    ["#000d29", "#118c8b", "#bca18d", "#f2746b", "#f14d49"],
+    ["#5aa382", "#78d6ac", "#bda728", "#704307", "#f7b178"],
+    ["#e0e8f0", "#51a2d9", "#53c0f0", "#b9e5f3", "#8a140e"]
 ];
 
 //auto change
-let changeDuration = 3000;
+let changeDuration = 10000;
 let lastChange = 0;
 
 function setup() {
@@ -46,22 +49,12 @@ function setup() {
     centerX = width / 2;
     centerY = height / 2;
 
-    // const colorSchemes = [
-    //     [color("#581845"), color("#900C3F"), color("#C70039"), color("#FF5733"), color("#FFC30F")],
-    //     [color("#fff222"), color("#222fff"), color("#fcfcfc"), color("#ffffff"), color("#fgfgfg")],
-    //     [color("#fac901"), color("#225095"), color("#dd0100"), color("#ffffff"), color("#000000")]
-    // ];
-
-    // colors = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
-    //colors = colorSchemes[colorIndex];
-    //colors = [color("#581845"), color("#900C3F"), color("#C70039"), color("#FF5733"), color("#FFC30F")];
 }
 
 function draw() {
 
-    var cookieAvgMotionName = "cookieAvgMotion";
-    //console.log(getCookie(cookieAvgMotionName));
 
+    var cookieAvgMotionName = "cookieAvgMotion";
     var cookie = getCookie(cookieAvgMotionName);
 
     var old_min = 0;
@@ -73,46 +66,6 @@ function draw() {
 
     console.log("Cookie:" + cookie + ";");
     console.log("Speed:" + speed + ";");
-
-    // //DEBUG
-    // textSize(20);
-    // noStroke();
-    // fill(255);
-    // ellipse(centerX, centerY, 60, 60);
-    // fill(0);
-    // text(variation, centerX, centerY - 10);
-    // text(length, centerX, centerY + 10);
-
-
-    //////////////////////////////////////////////////
-    //replacing this with mouseclicked function
-
-    // if (mouseIsPressed) {
-    //     for (let i = 0; i < 20; i++) {
-
-    //         // let x = mouseX + random(-100, 100);
-    //         // let y = mouseY + random(-100, 100);
-
-
-    //         let x = Math.round(Math.random(0, 1) * maxX);
-    //         let y = Math.round(Math.random(0, 1) * maxY);
-
-
-    //         console.log(x);
-    //         console.log(y);
-
-    //         var blob = {
-    //             x: getXPos(x),
-    //             y: getYPos(y),
-    //             size: random(1, 5),
-    //             lastX: x,
-    //             lastY: y,
-    //             color: colors[floor(random(colors.length))],
-    //             direction: random(0.1, 1) * (random() > 0.5 ? 1 : -1)
-    //         };
-    //         blobs.push(blob);
-    //     }
-    // }
 
     var length = blobs.length;
     if (length == 0) {
@@ -230,10 +183,8 @@ function getYPrint(y) {
     return yScale * y + centerY;
 }
 
-//testing different triggers
 function mouseClicked() {
-    //colorIndex = colorIndex;
-    //colorIndex = Math.floor(Math.random() * colorSchemes.length);
+    test();
 }
 
 function keyPressed() {
@@ -242,25 +193,8 @@ function keyPressed() {
 
 function test(avgMotion) {
 
-    //avgMotion = sessionStorage.getItem("avgMotion");
-    //console.log(sessionStorage);
-
-    // const colorSchemes = [
-    //     [color("#581845"), color("#900C3F"), color("#C70039"), color("#FF5733"), color("#FFC30F")],
-    //     [color("#fff222"), color("#222fff"), color("#fcfcfc"), color("#ffffff"), color("#fgfgfg")],
-    //     [color("#fac901"), color("#225095"), color("#dd0100"), color("#ffffff"), color("#000000")]
-    // ];
-
-    //colorIndex = Math.round(Math.random() * (colorSchemes.length));
-    //console.log("colorIndex: " + Math.floor(Math.random() * colorSchemes.length))
-
     colorIndex = Math.floor(Math.random() * colorSchemes.length);
-
-    //colors = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
     colors = colorSchemes[colorIndex];
-
-    //colors = [color("#581845"), color("#900C3F"), color("#C70039"), color("#FF5733"), color("#FFC30F")];
-    //colors = colorSchemes[2];
 
     let x = Math.round(Math.random(0, 1) * maxX);
     let y = Math.round(Math.random(0, 1) * maxY);
@@ -273,10 +207,6 @@ function test(avgMotion) {
         x = x + Math.round(random((-1 * deviation), deviation));
         y = y + Math.round(random((-1 * deviation), deviation));
 
-
-        //console.log(x);
-        //console.log(y);
-
         var blob = {
             x: getXPos(x),
             y: getYPos(y),
@@ -288,9 +218,6 @@ function test(avgMotion) {
         };
         blobs.push(blob);
     }
-
-    // var cookieAvgMotionName = "cookieAvgMotion"
-    // console.log(getCookie(cookieAvgMotionName));
 }
 
 function getCookie(cookieAvgMotionName) {
