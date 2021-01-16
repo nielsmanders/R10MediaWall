@@ -17,8 +17,14 @@ trying a lot of different things and selecting the best results.
 ## Different concepts
 In the end a selection of 3 differernt interactive visualisations are presented to the stakeholder. 
 #### Schader interaction
+This visualisation uses GLSL shaders that van be influenced using your hand and the Leap Motion sensor. when explained simplified, the
+height of your hand influences the zoom and the location of your hand influences the movement in the shaders.
 #### Particle interaction
+This visualisation needs some sort of trigger to start generating particles, these particles will move based on the motion
+that is being detected with the webcam. The particles move in different ways and will be generated in different colors and locations
 #### Live pixelsorting
+This visualisation uses a technology called pixelsorting. You have to options to choose different ways to apply the pixelsorting
+on the choosen image. When you have found settings you like you have the option to use a live image taken by your webcam camera. 
 
 ## Installation and usage
 All the visualisation are based on P5.js and made to work in a webbrowser. Each of the visualisations contains a index.html file
